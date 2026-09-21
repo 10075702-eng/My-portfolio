@@ -1,0 +1,2 @@
+import { ShortsGallery } from '@/components/shorts-gallery'; import { t, type Locale } from '@/config/i18n';
+export default async function Shorts({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; const l = locale as Locale; return <main className="page-pad min-h-screen pt-32 pb-24"><p className="mono text-[10px] tracking-[.2em] text-acid">INSTA360 / VLOG</p><h1 className="mt-4 text-5xl md:text-7xl">{t(l).nav.shorts}</h1><div className="mt-14"><ShortsGallery locale={l}/></div></main> }

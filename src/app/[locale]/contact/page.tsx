@@ -1,0 +1,2 @@
+import { media } from '@/config/media'; import { t, type Locale } from '@/config/i18n';
+export default async function Contact({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; const l = locale as Locale; return <main className="page-pad flex min-h-screen flex-col bg-acid pt-32 pb-10 text-ink"><p className="mono text-[10px]">LET&apos;S MAKE SOMETHING</p><h1 className="my-auto text-6xl md:text-8xl">{l === 'zh' ? '一起发生。' : 'Let’s make it happen.'}</h1><a href={media.socials.email} className="text-lg">hello@example.com ↗</a></main> }

@@ -9,7 +9,7 @@ export const media = {
   avatar: 'https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=1200&q=85',
   panoramas: { photo: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', video: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.mp4' },
   workCovers: { echoes: '/media/covers/echoes.jpg', panorama: '/media/covers/panorama.jpg', marshal: '/media/covers/marshal.jpg', missing: '/media/covers/missing.jpg' },
-  previewVideos: { echoes: 'https://cdn.coverr.co/videos/coverr-a-man-walking-through-a-forest-1574/1080p.mp4', panorama: 'https://cdn.coverr.co/videos/coverr-view-from-a-drone-1573/1080p.mp4', marshal: 'https://cdn.coverr.co/videos/coverr-aerial-view-of-a-rocky-island-1572/1080p.mp4', missing: 'https://cdn.coverr.co/videos/coverr-a-man-walking-through-a-forest-1574/1080p.mp4' },
+  previewVideos: { echoes: '', panorama: '/media/covers/panorama-preview.mp4', marshal: '/media/covers/marshal-preview.mp4', missing: '' },
   shorts: [
     { id: "own-24-01", title: { zh: "九曲河", en: "Jiuqu River" }, type: "short", year: "2024", device: "个人创作", duration: "00:20", aspect: "landscape", cover: "/media/shorts/own-24-01.jpg", video: "/media/shorts/own-24-01.mp4" },
     { id: "own-24-02", title: { zh: "川美校园", en: "SCFAI Campus" }, type: "short", year: "2024", device: "个人创作", duration: "00:33", aspect: "landscape", cover: "/media/shorts/own-24-02.jpg", video: "/media/shorts/own-24-02.mp4" },

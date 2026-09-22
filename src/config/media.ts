@@ -7,7 +7,6 @@ export type ShortItem = { id: string; title: { zh: string; en: string }; type: '
 export const media = {
   heroVideo: '/media/hero/hero.mp4',
   avatar: 'https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=1200&q=85',
-  panoramas: { photo: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', video: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.mp4' },
   workCovers: { echoes: '/media/covers/echoes.jpg', panorama: '/media/covers/panorama.jpg', marshal: '/media/covers/marshal.jpg', missing: '/media/covers/missing.jpg' },
   previewVideos: { echoes: '', panorama: '/media/covers/panorama-preview.mp4', marshal: '/media/covers/marshal-preview.mp4', missing: '' },
   shorts: [
@@ -139,5 +138,5 @@ export const media = {
     { id: 'pc-09-01', series: '生日', title: { zh: "21岁生日1", en: "21st Birthday I" }, front: "/media/postcards/shengri-01-front.jpg", back: '', rotate: '-2deg' },
     { id: 'pc-09-02', series: '生日', title: { zh: "21岁生日2", en: "21st Birthday II" }, front: "/media/postcards/shengri-02-front.jpg", back: '', rotate: '1deg' },
   ],
-  socials: { instagram: '#', xiaohongshu: '#', email: 'mailto:hello@example.com' },
+  socials: { instagram: '', xiaohongshu: '', email: 'mailto:10075702@network.rca.ac.uk' },
 } as const;

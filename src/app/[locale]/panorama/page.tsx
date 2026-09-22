@@ -1,2 +1,18 @@
-import { PanoramaViewer } from '@/components/panorama-viewer'; import { media } from '@/config/media'; import { t, type Locale } from '@/config/i18n';
-export default async function Panorama({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; const l = locale as Locale; return <main className="min-h-screen pt-24"><div className="page-pad py-5"><p className="mono text-[10px] text-acid">IMMERSIVE 360°</p><h1 className="mt-2 text-3xl">{t(l).nav.panorama}</h1></div><div className="h-[72vh]"><PanoramaViewer source={media.panoramas.photo} locale={l}/></div></main> }
+import { PanoramaLibrary } from '@/components/panorama-library';
+import { type Locale } from '@/config/i18n';
+import { panoramaLibraryMeta } from '@/config/works';
+
+export default async function Panorama({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const l = locale as Locale;
+  const meta = panoramaLibraryMeta[l];
+
+  return (
+    <main className="page-pad min-h-screen pt-32 pb-24">
+      <p className="mono text-[10px] tracking-[.2em] text-acid">360° PHOTO LIBRARY</p>
+      <h1 className="mt-4 text-5xl tracking-[-.08em] md:text-7xl">{meta.title}</h1>
+      <p className="mt-6 max-w-2xl text-sm leading-7 text-white/65">{meta.summary}</p>
+      <div className="mt-14"><PanoramaLibrary locale={l} /></div>
+    </main>
+  );
+}

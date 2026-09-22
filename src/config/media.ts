@@ -4,10 +4,10 @@
  * Hero：建议 1920×1080、8–15 秒、静音循环、3–5MB。
  */
 export const media = {
-  heroVideo: 'https://cdn.coverr.co/videos/coverr-aerial-view-of-a-rocky-island-1572/1080p.mp4',
+  heroVideo: '/media/hero/hero.mp4',
   avatar: 'https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=1200&q=85',
   panoramas: { photo: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', video: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.mp4' },
-  workCovers: { echoes: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=1800&q=85', panorama: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1800&q=85', marshal: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85', missing: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=85' },
+  workCovers: { echoes: '/media/covers/echoes.jpg', panorama: '/media/covers/panorama.jpg', marshal: '/media/covers/marshal.jpg', missing: '/media/covers/missing.jpg' },
   previewVideos: { echoes: 'https://cdn.coverr.co/videos/coverr-a-man-walking-through-a-forest-1574/1080p.mp4', panorama: 'https://cdn.coverr.co/videos/coverr-view-from-a-drone-1573/1080p.mp4', marshal: 'https://cdn.coverr.co/videos/coverr-aerial-view-of-a-rocky-island-1572/1080p.mp4', missing: 'https://cdn.coverr.co/videos/coverr-a-man-walking-through-a-forest-1574/1080p.mp4' },
   shorts: [
     { id: 'coastline', title: { zh: '海岸线的风', en: 'English title to be provided.' }, duration: '00:36', aspect: 'landscape', cover: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=85', video: 'https://cdn.coverr.co/videos/coverr-view-from-a-drone-1573/1080p.mp4' },

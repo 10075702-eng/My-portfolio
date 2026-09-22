@@ -11,8 +11,20 @@ const R2 = "https://pub-2c2ab767f0b9414ebcdd2064565c379e.r2.dev";
 export const media = {
   heroVideo: '/media/hero/hero.mp4',
   avatar: 'https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=1200&q=85',
-  workCovers: { echoes: '/media/covers/echoes.jpg', panorama: '/media/covers/panorama.jpg', marshal: '/media/covers/marshal.jpg', missing: '/media/covers/missing.jpg' },
-  previewVideos: { echoes: '', panorama: '/media/covers/panorama-preview.mp4', marshal: '/media/covers/marshal-preview.mp4', missing: '' },
+  workCovers: { echoes: '/media/covers/echoes.jpg', panorama: '/media/covers/panorama.jpg', marshal: '/media/covers/marshal.jpg', missing: '/media/covers/missing.jpg', hatch: '/media/covers/hatch.jpg', tea: '/media/covers/tea.jpg', tracing: '/media/covers/tracing.jpg' },
+  workVideos: {
+    echoes: `${R2}/films/echoes.mp4`,
+    marshal: `${R2}/films/marshal.mp4`,
+    missing: `${R2}/films/missing.mp4`,
+    hatch: `${R2}/films/hatch.mp4`,
+  },
+  previewVideos: {
+    echoes: `${R2}/previews/echoes.mp4`,
+    panorama: '/media/covers/panorama-preview.mp4',
+    marshal: `${R2}/previews/marshal.mp4`,
+    missing: `${R2}/previews/missing.mp4`,
+    hatch: `${R2}/previews/hatch.mp4`,
+  },
   shorts: [
     { id: "own-24-02", title: { zh: "川美校园", en: "SCFAI Campus" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:33", aspect: "landscape", cover: R2 + "/own-24-02.jpg", video: R2 + "/own-24-02.mp4" },
     { id: "own-24-03", title: { zh: "青城山", en: "Qingcheng Mountain" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:21", aspect: "landscape", cover: R2 + "/own-24-03.jpg", video: R2 + "/own-24-03.mp4" },

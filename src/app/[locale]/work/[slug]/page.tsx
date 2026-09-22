@@ -25,6 +25,11 @@ export default async function WorkDetail({ params }: { params: Promise<{ locale:
           <p className="mt-5 max-w-xl text-white/75">{work[l].summary}</p>
         </div>
       </section>
+      {work.media.video && <section className="page-pad pt-12 md:pt-16">
+        <video controls playsInline preload="metadata" poster={work.media.cover} className="w-full bg-black">
+          <source src={work.media.video} type="video/mp4" />
+        </video>
+      </section>}
       <section className="page-pad py-20">
         <div className="max-w-3xl space-y-5 text-xl md:text-3xl">{work[l].overview.map(item => <p key={item}>{item}</p>)}</div>
         <div className="mt-10 flex flex-wrap gap-2">{work.tools.map(tool => <span key={tool} className="rounded-full border border-white/20 px-3 py-1 text-xs">{tool}</span>)}</div>

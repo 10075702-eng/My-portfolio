@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { findFormalWork, formalWorks } from '@/config/works';
 import { t, type Locale } from '@/config/i18n';
+import { FilmPlayer } from '@/components/film-player';
 
 export function generateStaticParams() {
   return ['zh', 'en'].flatMap(locale => formalWorks.map(work => ({ locale, slug: work.slug })));
@@ -26,9 +27,7 @@ export default async function WorkDetail({ params }: { params: Promise<{ locale:
         </div>
       </section>
       {work.media.video && <section className="page-pad pt-12 md:pt-16">
-        <video controls playsInline preload="metadata" poster={work.media.cover} className="w-full bg-black">
-          <source src={work.media.video} type="video/mp4" />
-        </video>
+        <FilmPlayer source={work.media.video} poster={work.media.cover} title={work[l].title} locale={l} />
       </section>}
       <section className="page-pad py-20">
         <div className="max-w-3xl space-y-5 text-xl md:text-3xl">{work[l].overview.map(item => <p key={item}>{item}</p>)}</div>

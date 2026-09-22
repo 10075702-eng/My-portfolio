@@ -37,3 +37,4 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 ## 部署 Vercel
 
 推送项目到 GitHub 后，在 Vercel 导入仓库。将同一组 Supabase 环境变量填入 Vercel 的 Environment Variables，然后使用默认 `npm run build` 即可。
+<!-- deploy test -->

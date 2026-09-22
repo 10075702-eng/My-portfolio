@@ -16,3 +16,7 @@ public/media/_收件箱/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# 短视频与 Vlog 托管在 Cloudflare R2，不进仓库
+public/media/shorts/*.mp4
+public/media/shorts/*.jpg

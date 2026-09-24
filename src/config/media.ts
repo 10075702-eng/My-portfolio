@@ -3,7 +3,7 @@
  * 360 视频：严格 2:1 且不超过 4096×2048；360 图片可为 8192×4096。
  * Hero：建议 1920×1080、8–15 秒、静音循环、3–5MB。
  */
-export type ShortItem = { id: string; title: { zh: string; en: string }; type: 'vlog' | 'short'; category: 'insta360' | 'personal'; year: '2024' | '2025' | '2026'; device: string; duration: string; aspect: 'landscape' | 'portrait' | 'square'; cover: string; video: string };
+export type ShortItem = { id: string; title: { zh: string; en: string }; type: 'vlog' | 'short'; category: 'insta360' | 'personal'; year: '2023' | '2024' | '2025' | '2026'; device: string; duration: string; aspect: 'landscape' | 'portrait' | 'square'; cover: string; video: string };
 // 短视频与 Vlog 托管在 Cloudflare R2（仓库只存代码与图片，不存视频）
 // 换域名或换存储时只改这一行
 export const R2 = "https://pub-2c2ab767f0b9414ebcdd2064565c379e.r2.dev";
@@ -31,13 +31,8 @@ export const media = {
   },
   shorts: [
     { id: "own-26-02", title: { zh: "22岁生日", en: "22nd Birthday" }, type: "short", category: "personal", year: "2026", device: "", duration: "00:41", aspect: "landscape", cover: R2 + "/own-26-02.jpg", video: R2 + "/own-26-02.mp4" },
-{ id: "x5-26-01", title: { zh: "南太行山", en: "South Taihang Mountains" }, type: "short", category: "insta360", year: "2026", device: "全景相机 X5", duration: "00:32", aspect: "landscape", cover: R2 + "/x5-26-01.jpg", video: R2 + "/x5-26-01.mp4" },
-{ id: "vlog-01", title: { zh: "印象·川美", en: "Impressions of SCFAI" }, type: "vlog", category: "personal", year: "2026", device: "", duration: "01:52", aspect: "landscape", cover: R2 + "/vlog-01.jpg", video: R2 + "/vlog-01.mp4" },
-{ id: "vlog-02", title: { zh: "川冬之旅", en: "Winter Journey in Sichuan" }, type: "vlog", category: "personal", year: "2026", device: "", duration: "06:33", aspect: "landscape", cover: R2 + "/vlog-02.jpg", video: R2 + "/vlog-02.mp4" },
-{ id: "vlog-03", title: { zh: "火把节", en: "Torch Festival" }, type: "vlog", category: "personal", year: "2026", device: "", duration: "02:00", aspect: "landscape", cover: R2 + "/vlog-03.jpg", video: R2 + "/vlog-03.mp4" },
-{ id: "vlog-04", title: { zh: "香格里拉 人文", en: "Shangri-La: People and Place" }, type: "vlog", category: "personal", year: "2026", device: "", duration: "01:40", aspect: "landscape", cover: R2 + "/vlog-04.jpg", video: R2 + "/vlog-04.mp4" },
-{ id: "vlog-05", title: { zh: "香格里拉", en: "Shangri-La" }, type: "vlog", category: "personal", year: "2026", device: "", duration: "07:32", aspect: "landscape", cover: R2 + "/vlog-05.jpg", video: R2 + "/vlog-05.mp4" },
 { id: "vlog-06", title: { zh: "香港", en: "Hong Kong" }, type: "vlog", category: "personal", year: "2026", device: "", duration: "11:00", aspect: "landscape", cover: R2 + "/vlog-06.jpg", video: R2 + "/vlog-06.mp4" },
+{ id: "x5-26-01", title: { zh: "南太行山", en: "South Taihang Mountains" }, type: "short", category: "insta360", year: "2026", device: "全景相机 X5", duration: "00:32", aspect: "landscape", cover: R2 + "/x5-26-01.jpg", video: R2 + "/x5-26-01.mp4" },
 { id: "own-25-01", title: { zh: "2025 总结", en: "2025 in Review" }, type: "short", category: "personal", year: "2025", device: "", duration: "00:33", aspect: "landscape", cover: R2 + "/own-25-01.jpg", video: R2 + "/own-25-01.mp4" },
 { id: "x5-25-04", title: { zh: "大连全景", en: "Dalian in 360" }, type: "short", category: "insta360", year: "2025", device: "全景相机 X5", duration: "00:14", aspect: "landscape", cover: R2 + "/x5-25-04.jpg", video: R2 + "/x5-25-04.mp4" },
 { id: "x5-25-03", title: { zh: "CHICKCHICKHICK", en: "CHICKCHICKHICK" }, type: "short", category: "insta360", year: "2025", device: "全景相机 X5", duration: "00:40", aspect: "landscape", cover: R2 + "/x5-25-03.jpg", video: R2 + "/x5-25-03.mp4" },
@@ -47,6 +42,7 @@ export const media = {
 { id: "luna-02", title: { zh: "食物", en: "Food" }, type: "short", category: "insta360", year: "2025", device: "Luna Ultra", duration: "00:21", aspect: "portrait", cover: R2 + "/luna-02.jpg", video: R2 + "/luna-02.mp4" },
 { id: "drone-04", title: { zh: "A1 航拍", en: "Aerial One" }, type: "short", category: "insta360", year: "2025", device: "全景无人机", duration: "00:28", aspect: "landscape", cover: R2 + "/drone-04.jpg", video: R2 + "/drone-04.mp4" },
 { id: "luna-01", title: { zh: "Luna 测试", en: "Luna Test" }, type: "short", category: "insta360", year: "2025", device: "Luna Ultra", duration: "00:17", aspect: "portrait", cover: R2 + "/luna-01.jpg", video: R2 + "/luna-01.mp4" },
+{ id: "vlog-03", title: { zh: "火把节", en: "Torch Festival" }, type: "vlog", category: "personal", year: "2025", device: "", duration: "02:00", aspect: "landscape", cover: R2 + "/vlog-03.jpg", video: R2 + "/vlog-03.mp4" },
 { id: "drone-03", title: { zh: "九寨沟", en: "Jiuzhaigou" }, type: "short", category: "insta360", year: "2025", device: "全景无人机", duration: "00:23", aspect: "portrait", cover: R2 + "/drone-03.jpg", video: R2 + "/drone-03.mp4" },
 { id: "ace-09", title: { zh: "像素转场", en: "Pixel Transition" }, type: "short", category: "insta360", year: "2025", device: "Ace Pro 2", duration: "00:18", aspect: "landscape", cover: R2 + "/ace-09.jpg", video: R2 + "/ace-09.mp4" },
 { id: "ace-08", title: { zh: "九寨沟", en: "Jiuzhaigou" }, type: "short", category: "insta360", year: "2025", device: "Ace Pro 2", duration: "00:31", aspect: "landscape", cover: R2 + "/ace-08.jpg", video: R2 + "/ace-08.mp4" },
@@ -54,16 +50,20 @@ export const media = {
 { id: "ace-07", title: { zh: "影石短片", en: "Insta360 Short" }, type: "short", category: "insta360", year: "2025", device: "Ace Pro 2", duration: "00:42", aspect: "landscape", cover: R2 + "/ace-07.jpg", video: R2 + "/ace-07.mp4" },
 { id: "own-25-05", title: { zh: "生日", en: "Birthday" }, type: "short", category: "personal", year: "2025", device: "", duration: "02:06", aspect: "landscape", cover: R2 + "/own-25-05.jpg", video: R2 + "/own-25-05.mp4" },
 { id: "drone-02", title: { zh: "影翎试飞", en: "Antigravity Test Flight" }, type: "short", category: "insta360", year: "2025", device: "全景无人机", duration: "00:20", aspect: "portrait", cover: R2 + "/drone-02.jpg", video: R2 + "/drone-02.mp4" },
+{ id: "vlog-05", title: { zh: "香格里拉", en: "Shangri-La" }, type: "vlog", category: "personal", year: "2025", device: "", duration: "07:32", aspect: "landscape", cover: R2 + "/vlog-05.jpg", video: R2 + "/vlog-05.mp4" },
+{ id: "vlog-04", title: { zh: "香格里拉 人文", en: "Shangri-La: People and Place" }, type: "vlog", category: "personal", year: "2025", device: "", duration: "01:40", aspect: "landscape", cover: R2 + "/vlog-04.jpg", video: R2 + "/vlog-04.mp4" },
 { id: "own-25-03", title: { zh: "川美油菜花", en: "Rapeseed at SCFAI" }, type: "short", category: "personal", year: "2025", device: "", duration: "00:18", aspect: "portrait", cover: R2 + "/own-25-03.jpg", video: R2 + "/own-25-03.mp4" },
 { id: "own-25-02", title: { zh: "烟花", en: "Fireworks" }, type: "short", category: "personal", year: "2025", device: "", duration: "00:23", aspect: "landscape", cover: R2 + "/own-25-02.jpg", video: R2 + "/own-25-02.mp4" },
 { id: "drone-01", title: { zh: "山城步道", en: "Mountain City Trail" }, type: "short", category: "insta360", year: "2025", device: "全景无人机", duration: "00:36", aspect: "landscape", cover: R2 + "/drone-01.jpg", video: R2 + "/drone-01.mp4" },
 { id: "ace-02", title: { zh: "罗汉寺", en: "Luohan Temple" }, type: "short", category: "insta360", year: "2025", device: "Ace Pro 2", duration: "00:45", aspect: "landscape", cover: R2 + "/ace-02.jpg", video: R2 + "/ace-02.mp4" },
 { id: "ace-01", title: { zh: "川剧", en: "Sichuan Opera" }, type: "short", category: "insta360", year: "2025", device: "Ace Pro 2", duration: "00:37", aspect: "landscape", cover: R2 + "/ace-01.jpg", video: R2 + "/ace-01.mp4" },
 { id: "own-24-03", title: { zh: "青城山", en: "Qingcheng Mountain" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:21", aspect: "landscape", cover: R2 + "/own-24-03.jpg", video: R2 + "/own-24-03.mp4" },
+{ id: "vlog-02", title: { zh: "川冬之旅", en: "Winter Journey in Sichuan" }, type: "vlog", category: "personal", year: "2024", device: "", duration: "06:33", aspect: "landscape", cover: R2 + "/vlog-02.jpg", video: R2 + "/vlog-02.mp4" },
 { id: "own-24-02", title: { zh: "川美校园", en: "SCFAI Campus" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:33", aspect: "landscape", cover: R2 + "/own-24-02.jpg", video: R2 + "/own-24-02.mp4" },
 { id: "own-24-08", title: { zh: "约会", en: "A Date" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:35", aspect: "landscape", cover: R2 + "/own-24-08.jpg", video: R2 + "/own-24-08.mp4" },
 { id: "own-24-06", title: { zh: "威海之行", en: "Weihai Trip" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:22", aspect: "landscape", cover: R2 + "/own-24-06.jpg", video: R2 + "/own-24-06.mp4" },
 { id: "own-24-05", title: { zh: "威海航拍", en: "Weihai Aerial" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:18", aspect: "portrait", cover: R2 + "/own-24-05.jpg", video: R2 + "/own-24-05.mp4" },
+{ id: "vlog-01", title: { zh: "印象·川美", en: "Impressions of SCFAI" }, type: "vlog", category: "personal", year: "2023", device: "", duration: "01:52", aspect: "landscape", cover: R2 + "/vlog-01.jpg", video: R2 + "/vlog-01.mp4" },
   ] as ShortItem[],
   /** 顺序固定。每张明信片单独列出，直接替换 title / front / back 即可。 */
   postcardSeries: ['大连', '凉山', '火把节', '九寨沟', '上海', '威海', '香港', '香格里拉', '生日'],

@@ -1,4 +1,5 @@
 import type { Locale } from './i18n';
+import { R2 } from './media';
 
 /** 360 照片必须是严格 2:1 等距圆柱投影（equirectangular）；可使用 8192×4096，查看器会显示加载提示。 */
 export type PanoramaItem = {
@@ -37,63 +38,83 @@ export const deviceIntros: Record<'drone' | 'camera', Record<Locale, string>> = 
 export const panoramaRegions: Record<string, Record<Locale, string>> = {
   '新疆': { zh: '新疆', en: 'Xinjiang' },
   '郑州': { zh: '郑州', en: 'Zhengzhou' },
+  '九寨沟': { zh: '九寨沟', en: 'Jiuzhaigou' },
+  '重庆': { zh: '重庆', en: 'Chongqing' },
   '大英博物馆': { zh: '大英博物馆', en: 'British Museum' },
   '大连': { zh: '大连', en: 'Dalian' },
 };
 
 export const panoramas: PanoramaItem[] = [
   {
-    id: "xinjiang-01",
+    id: "tianshan-01",
     device: 'drone',
     region: "新疆",
-    title: { zh: "新疆 / 占位全景 01", en: "Xinjiang / Panorama 01" },
-    note: { zh: '', en: '' },   // ← 在这里写这张全景的记录
-    src: "/media/panoramas/xinjiang-01.jpg",
-    thumb: "/media/panoramas/xinjiang-01-thumb.jpg",
+    title: { zh: "天山天池", en: "Tianshan Tianchi" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/tianshan-01.jpg`,
+    thumb: `${R2}/thumbs/tianshan-01.jpg`,
   },
   {
-    id: "xinjiang-02",
+    id: "tianshan-02",
     device: 'drone',
     region: "新疆",
-    title: { zh: "新疆 / 占位全景 02", en: "Xinjiang / Panorama 02" },
-    note: { zh: '', en: '' },   // ← 在这里写这张全景的记录
-    src: "/media/panoramas/xinjiang-02.jpg",
-    thumb: "/media/panoramas/xinjiang-02-thumb.jpg",
+    title: { zh: "天山天池", en: "Tianshan Tianchi" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/tianshan-02.jpg`,
+    thumb: `${R2}/thumbs/tianshan-02.jpg`,
   },
   {
-    id: "zhengzhou-01",
+    id: "sailimu-01",
+    device: 'drone',
+    region: "新疆",
+    title: { zh: "赛里木湖", en: "Sayram Lake" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/sailimu-01.jpg`,
+    thumb: `${R2}/thumbs/sailimu-01.jpg`,
+  },
+  {
+    id: "jiuzhaigou-01",
+    device: 'drone',
+    region: "九寨沟",
+    title: { zh: "九寨沟", en: "Jiuzhaigou" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/jiuzhaigou-01.jpg`,
+    thumb: `${R2}/thumbs/jiuzhaigou-01.jpg`,
+  },
+  {
+    id: "jiuzhaigou-02",
+    device: 'drone',
+    region: "九寨沟",
+    title: { zh: "九寨沟", en: "Jiuzhaigou" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/jiuzhaigou-02.jpg`,
+    thumb: `${R2}/thumbs/jiuzhaigou-02.jpg`,
+  },
+  {
+    id: "shancheng-01",
+    device: 'drone',
+    region: "重庆",
+    title: { zh: "山城步道", en: "Mountain City Trail" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/shancheng-01.jpg`,
+    thumb: `${R2}/thumbs/shancheng-01.jpg`,
+  },
+  {
+    id: "shancheng-02",
+    device: 'drone',
+    region: "重庆",
+    title: { zh: "山城步道", en: "Mountain City Trail" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/shancheng-02.jpg`,
+    thumb: `${R2}/thumbs/shancheng-02.jpg`,
+  },
+  {
+    id: "huanghe-01",
     device: 'drone',
     region: "郑州",
-    title: { zh: "郑州 / 占位全景 01", en: "Zhengzhou / Panorama 01" },
-    note: { zh: '', en: '' },   // ← 在这里写这张全景的记录
-    src: "/media/panoramas/zhengzhou-01.jpg",
-    thumb: "/media/panoramas/zhengzhou-01-thumb.jpg",
-  },
-  {
-    id: "british-museum-01",
-    device: 'camera',
-    region: "大英博物馆",
-    title: { zh: "大英博物馆 / 占位全景 01", en: "British Museum / Panorama 01" },
-    note: { zh: '', en: '' },   // ← 在这里写这张全景的记录
-    src: "/media/panoramas/british-museum-01.jpg",
-    thumb: "/media/panoramas/british-museum-01-thumb.jpg",
-  },
-  {
-    id: "dalian-01",
-    device: 'camera',
-    region: "大连",
-    title: { zh: "大连 / 占位全景 01", en: "Dalian / Panorama 01" },
-    note: { zh: '', en: '' },   // ← 在这里写这张全景的记录
-    src: "/media/panoramas/dalian-01.jpg",
-    thumb: "/media/panoramas/dalian-01-thumb.jpg",
-  },
-  {
-    id: "dalian-02",
-    device: 'camera',
-    region: "大连",
-    title: { zh: "大连 / 占位全景 02", en: "Dalian / Panorama 02" },
-    note: { zh: '', en: '' },   // ← 在这里写这张全景的记录
-    src: "/media/panoramas/dalian-02.jpg",
-    thumb: "/media/panoramas/dalian-02-thumb.jpg",
+    title: { zh: "黄河迎宾馆", en: "Yellow River Guest House" },
+    note: { zh: '', en: '' },
+    src: `${R2}/panoramas/huanghe-01.jpg`,
+    thumb: `${R2}/thumbs/huanghe-01.jpg`,
   },
 ];

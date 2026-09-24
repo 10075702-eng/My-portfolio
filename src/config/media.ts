@@ -6,7 +6,7 @@
 export type ShortItem = { id: string; title: { zh: string; en: string }; type: 'vlog' | 'short'; category: 'insta360' | 'personal'; year: '2024' | '2025' | '2026'; device: string; duration: string; aspect: 'landscape' | 'portrait' | 'square'; cover: string; video: string };
 // 短视频与 Vlog 托管在 Cloudflare R2（仓库只存代码与图片，不存视频）
 // 换域名或换存储时只改这一行
-const R2 = "https://pub-2c2ab767f0b9414ebcdd2064565c379e.r2.dev";
+export const R2 = "https://pub-2c2ab767f0b9414ebcdd2064565c379e.r2.dev";
 
 export const media = {
   heroVideo: '/media/hero/hero.mp4',
@@ -17,6 +17,8 @@ export const media = {
     marshal: `${R2}/films/marshal.mp4`,
     missing: `${R2}/films/missing.mp4`,
     hatch: `${R2}/films/hatch.mp4`,
+    tea: `${R2}/films/tea.mp4`,
+    tracing: `${R2}/films/tracing.mp4`,
   },
   previewVideos: {
     echoes: `${R2}/previews/echoes.mp4`,
@@ -24,6 +26,8 @@ export const media = {
     marshal: `${R2}/previews/marshal.mp4`,
     missing: `${R2}/previews/missing.mp4`,
     hatch: `${R2}/previews/hatch.mp4`,
+    tea: `${R2}/previews/tea.mp4`,
+    tracing: `${R2}/previews/tracing.mp4`,
   },
   shorts: [
     { id: "own-24-02", title: { zh: "川美校园", en: "SCFAI Campus" }, type: "short", category: "personal", year: "2024", device: "", duration: "00:33", aspect: "landscape", cover: R2 + "/own-24-02.jpg", video: R2 + "/own-24-02.mp4" },

@@ -26,6 +26,17 @@ export function PhotosLibrary({ locale }: { locale: Locale }) {
     const next = current[index + offset];
     if (next) select(next);
   };
+  const renderMasonry = (items: PhotoItem[]) => <div className="shorts-masonry">
+    {items.map(item => <button key={item.id} onClick={() => select(item)} className="mb-5 block w-full break-inside-avoid text-left">
+      <div className="overflow-hidden bg-zinc-900" style={{ aspectRatio: `${item.w} / ${item.h}` }}>
+        <SafeImage src={item.thumb} alt={title(item)} fallback={locale === 'zh' ? <>图片加载失败</> : <>Image unavailable</>} />
+      </div>
+      <div className="mt-2 flex items-baseline justify-between gap-3">
+        <p className="text-sm">{title(item)}</p>
+        <span className="shrink-0 text-[11px] text-white/40">{categoryLabel(item.category)}</span>
+      </div>
+    </button>)}
+  </div>;
 
   useEffect(() => {
     if (!selected) return;
@@ -59,21 +70,14 @@ export function PhotosLibrary({ locale }: { locale: Locale }) {
 
     {places.map(place => {
       const items = visible.filter(item => item.place === place);
+      const photoItems = items.filter(item => item.category === 'photo');
+      const stillItems = items.filter(item => item.category === 'still');
       return <section key={place} className="mt-10 md:mt-16">
         <h2 className="mono mb-4 text-[11px] tracking-[.14em] text-white/85 md:mb-5">
           {placeName(place)} <span className="px-2 text-white/40">·</span><span className="text-white/40">{items.length}</span>
         </h2>
-        <div className="shorts-masonry">
-          {items.map(item => <button key={item.id} onClick={() => select(item)} className="mb-5 block w-full break-inside-avoid text-left">
-            <div className="overflow-hidden bg-zinc-900" style={{ aspectRatio: `${item.w} / ${item.h}` }}>
-              <SafeImage src={item.thumb} alt={title(item)} fallback={locale === 'zh' ? <>图片加载失败</> : <>Image unavailable</>} />
-            </div>
-            <div className="mt-2 flex items-baseline justify-between gap-3">
-              <p className="text-sm">{title(item)}</p>
-              <span className="shrink-0 text-[11px] text-white/40">{categoryLabel(item.category)}</span>
-            </div>
-          </button>)}
-        </div>
+        {photoItems.length > 0 && renderMasonry(photoItems)}
+        {stillItems.length > 0 && <div className={photoItems.length > 0 ? 'mt-7' : undefined}>{renderMasonry(stillItems)}</div>}
       </section>;
     })}
 

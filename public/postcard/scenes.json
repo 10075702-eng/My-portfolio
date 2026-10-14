@@ -19,7 +19,7 @@
         "en": "People frame this river from the same spot every day. What does the river keep for them?"
       },
       "panorama": "/r2/postcard/pano/scene-a-riverside.jpg",
-      "thumb": "/r2/postcard/thumb/scene-a-riverside.jpg",
+      "thumb": "./thames-sunset-cover.jpg",
       "hotspots": [
         {
           "id": "thames-bridge",

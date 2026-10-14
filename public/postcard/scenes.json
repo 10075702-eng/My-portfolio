@@ -1,0 +1,114 @@
+{
+  "project": "明信片之外 Beyond the Postcard",
+  "r2_public": "https://pub-2c2ab767f0b9414ebcdd2064565c379e.r2.dev",
+  "proxy_prefix": "/r2",
+  "note": "网页里一律使用 /r2/... 同源代理路径（作品集网站 next.config.js 已配置 /r2/:path*）。R2 直链会因 CORS 无法用于 WebGL 全景纹理。",
+  "scenes": [
+    {
+      "id": "scene-a-thames",
+      "name": {
+        "zh": "泰晤士河",
+        "en": "The Thames"
+      },
+      "place": {
+        "zh": "泰晤士河畔 · Albert Bridge 旁",
+        "en": "Thames riverside, by Albert Bridge"
+      },
+      "question": {
+        "zh": "人们每天在同一个位置取景。这条河替谁记住了什么？",
+        "en": "People frame this river from the same spot every day. What does the river keep for them?"
+      },
+      "panorama": "/r2/postcard/pano/scene-a-riverside.jpg",
+      "thumb": "/r2/postcard/thumb/scene-a-riverside.jpg",
+      "hotspots": [
+        {
+          "id": "thames-bridge",
+          "name": {
+            "zh": "小桥",
+            "en": "The bridge"
+          },
+          "yaw": 74,
+          "pitch": -2,
+          "video": "/r2/postcard/video/thames-bridge.mp4",
+          "full": "/r2/postcard/full/thames-bridge.mp4",
+          "source": "泰晤士河小桥.mp4  12.6s",
+          "confidence": "high"
+        },
+        {
+          "id": "thames-canal",
+          "name": {
+            "zh": "分河",
+            "en": "The cut"
+          },
+          "yaw": 62,
+          "pitch": -4,
+          "video": "/r2/postcard/video/thames-canal.mp4",
+          "full": "/r2/postcard/full/thames-canal.mp4",
+          "source": "泰晤士河分河.mp4  12.7s",
+          "confidence": "medium"
+        },
+        {
+          "id": "thames-boat",
+          "name": {
+            "zh": "小船",
+            "en": "The small boat"
+          },
+          "yaw": 50,
+          "pitch": -6,
+          "video": "/r2/postcard/video/thames-boat.mp4",
+          "full": "/r2/postcard/full/thames-boat.mp4",
+          "source": "泰晤士河小船.mp4  10.8s",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "scene-b-battersea-park",
+      "name": {
+        "zh": "巴特西公园",
+        "en": "Battersea Park"
+      },
+      "place": {
+        "zh": "巴特西公园 · 水池花园",
+        "en": "Battersea Park, the pond garden"
+      },
+      "question": {
+        "zh": "一个被打理得如此整齐的花园，替谁清理掉了落叶？",
+        "en": "A garden kept this tidy has swept away its leaves. For whom?"
+      },
+      "panorama": "/r2/postcard/pano/scene-b-garden.jpg",
+      "thumb": "/r2/postcard/thumb/scene-b-garden.jpg",
+      "hotspots": [
+        {
+          "id": "battersea-fountain",
+          "name": {
+            "zh": "喷水池",
+            "en": "The fountain"
+          },
+          "yaw": 0,
+          "pitch": 3,
+          "video": "/r2/postcard/video/battersea-fountain.mp4",
+          "full": "/r2/postcard/full/battersea-fountain.mp4",
+          "source": "巴特西公园喷水池.mp4  12.9s",
+          "confidence": "high"
+        },
+        {
+          "id": "battersea-sundial",
+          "name": {
+            "zh": "日晷",
+            "en": "The sundial"
+          },
+          "yaw": 22,
+          "pitch": 2,
+          "video": "/r2/postcard/video/battersea-sundial.mp4",
+          "full": "/r2/postcard/full/battersea-sundial.mp4",
+          "source": "巴特西公园雕塑.mp4  16.2s",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "resolving": {
+    "切换场景时必须重置": "取景方向、已看细节、包装选择、结尾选择"
+  }
+}

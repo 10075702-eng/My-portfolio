@@ -1,3 +1,34 @@
 'use client';
-import Link from 'next/link'; import { usePathname, useRouter } from 'next/navigation'; import { useState } from 'react'; import { t, type Locale } from '@/config/i18n';
-export function SiteHeader({ locale }: { locale: Locale }) { const [open, setOpen] = useState(false); const router = useRouter(); const pathname = usePathname(); const copy = t(locale); const links = [{ href: '/work', label: copy.nav.work }, { href: '/shorts', label: copy.nav.shorts }, { href: '/panorama', label: copy.nav.panorama }, { href: '/photos', label: copy.nav.photos }, { href: '/postcards', label: copy.nav.postcards }, { href: '/about', label: copy.nav.about }, { href: '/contact', label: copy.nav.contact }]; const switchLocale = () => { const next = locale === 'zh' ? 'en' : 'zh'; localStorage.setItem('zjx-locale', next); router.push(pathname.replace(`/${locale}`, `/${next}`)); }; return <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-between bg-gradient-to-b from-black/80 via-black/35 to-transparent px-5 md:px-10"><Link href={`/${locale}`} className="text-lg font-semibold tracking-[-.08em] text-white">ZJH<span className="text-acid">.</span></Link><nav className="hidden gap-6 text-xs text-white md:flex">{links.map(l => <Link key={l.href} href={`/${locale}${l.href}`} className="transition hover:text-acid">{l.label}</Link>)}</nav><div className="flex items-center gap-3"><button onClick={switchLocale} className="rounded-full border border-white/50 px-3 py-1.5 text-[10px] text-white">{copy.language}</button><button onClick={() => setOpen(!open)} className="text-xs text-white md:hidden">{open ? '×' : '菜单'}</button><Link href={`/${locale}/contact`} className="hidden rounded-full border border-white/60 px-4 py-2 text-[10px] text-white transition hover:bg-white hover:text-black md:block">{copy.getInTouch}</Link></div>{open && <nav className="absolute right-5 top-16 flex w-48 flex-col gap-5 border border-white/20 bg-black/90 p-6 text-sm text-white backdrop-blur md:hidden">{links.map(l => <Link onClick={() => setOpen(false)} key={l.href} href={`/${locale}${l.href}`}>{l.label}</Link>)}</nav>}</header> }
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+import { exhibitionCopy } from '@/config/exhibition';
+import type { Locale } from '@/config/i18n';
+
+export function SiteHeader({ locale }: { locale: Locale }) {
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const path = usePathname();
+  const router = useRouter();
+  const c = exhibitionCopy[locale];
+  const links = [['work', c.films], ['moving-images', c.moving], ['panorama', c.panorama], ['photos', c.photography], ['postcards', c.postcards], ['about', locale === 'zh' ? '关于我' : 'About'], ['contact', locale === 'zh' ? '联系' : 'Contact']];
+  useEffect(() => {
+    if (!open) return;
+    const outside = (e: PointerEvent) => { if (!root.current?.contains(e.target as Node)) setOpen(false); };
+    const escape = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(false); trigger.current?.focus(); } };
+    document.addEventListener('pointerdown', outside);
+    document.addEventListener('keydown', escape);
+    return () => { document.removeEventListener('pointerdown', outside); document.removeEventListener('keydown', escape); };
+  }, [open]);
+  return <header ref={root} className="ex-header" onBlur={e => { if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false); }}>
+    <Link className="ex-wordmark" href={`/${locale}`}>JUNHANG ZHOU<span>影像创作者 / IMAGE MAKER</span></Link>
+    <div className="flex items-center gap-3">
+      <button className="ex-nav-button" onClick={() => { const next = locale === 'zh' ? 'en' : 'zh'; localStorage.setItem('zjx-locale', next); router.push(path.replace(`/${locale}`, `/${next}`)); }}>{locale === 'zh' ? 'EN' : '中文'}</button>
+      <button ref={trigger} aria-expanded={open} aria-controls="site-index" className="ex-nav-button" onClick={() => setOpen(!open)}>{open ? c.close : c.menu} {open ? '−' : '+'}</button>
+    </div>
+    {open && <nav id="site-index" aria-label={c.menu} className="ex-menu">
+      {links.map(([href, label], i) => <Link key={href} href={`/${locale}/${href}`} onClick={() => setOpen(false)}><small>0{i + 1}</small>{label}<span>↗</span></Link>)}
+    </nav>}
+  </header>;
+}

@@ -1,2 +1,4 @@
-import { PhotosLibrary } from '@/components/photos-library'; import { t, type Locale } from '@/config/i18n';
-export default async function PhotosPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; const l = locale as Locale; return <main className="page-pad min-h-screen pt-32 pb-24"><p className="mono text-[10px] tracking-[.2em] text-acid">PHOTOGRAPHS & STILLS</p><h1 className="mt-4 text-5xl md:text-7xl">{t(l).nav.photos}</h1><p className="mt-6 max-w-xl text-sm leading-7 text-white/60">{l === 'zh' ? '从地区出发，沿着每一个地点的拍摄轨迹观看影像。' : 'Browse visual records by region, following each location through the images made there.'}</p><div className="mt-12"><PhotosLibrary locale={l}/></div></main> }
+import { PhotosLibrary } from '@/components/photos-library';
+import { PhotoSpiral } from '@/components/photo-spiral';
+import type { Locale } from '@/config/i18n';
+export default async function Page({params}:{params:Promise<{locale:string}>}){const {locale}=await params;const l=locale as Locale;return <main><PhotoSpiral locale={l}/><section id="photo-archive" className="page-pad pb-24 pt-28"><p className="ex-eyebrow mb-10">THE ARCHIVE / {l==='zh'?'完整图库':'ALL PHOTOGRAPHS'}</p><PhotosLibrary locale={l}/></section></main>;}

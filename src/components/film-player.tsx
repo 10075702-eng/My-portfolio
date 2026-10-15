@@ -14,10 +14,10 @@ export function FilmPlayer({ source, poster, title, locale, modal = false, onClo
     document.body.style.overflow = 'hidden';
     const closeOnEscape = (event: KeyboardEvent) => event.key === 'Escape' && onClose?.();
     window.addEventListener('keydown', closeOnEscape);
-    video.current?.play().catch(() => {});
+    const element = video.current;
+    element?.play().catch(() => {});
 
     return () => {
-      const element = video.current;
       element?.pause();
       element?.removeAttribute('src');
       element?.load();

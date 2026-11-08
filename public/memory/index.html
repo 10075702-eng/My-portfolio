@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171c1c">
+  <meta name="description" content="余忆 What Remains — an interactive study of attention, forgetting and a riverside memory. Original photography by Junhang Zhou.">
+  <title>余忆 · What Remains — Junhang Zhou</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23171c1c'/%3E%3Ccircle cx='40' cy='40' r='20' fill='none' stroke='%23ded8c6' stroke-width='1'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./memory.css">
+</head>
+<body data-mode="intro">
+  <main id="stage" aria-label="泰晤士河记忆全景">
+    <div class="underpainting" aria-hidden="true"></div>
+    <canvas id="panorama" tabindex="0" aria-label="拖动或用方向键转动全景；停留后点击清晰区域，或按回车进入记忆"></canvas>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <div class="film-border" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <header class="masthead">
+      <a class="identity" href="./index.html" aria-label="余忆，回到开场"><span class="identity-mark" aria-hidden="true">◌</span><span data-zh="余忆" data-en="What Remains">余忆</span></a>
+      <span class="edition">A STUDY IN REMEMBERING</span>
+      <div class="header-actions"><button id="language" class="text-button" aria-label="Switch to English">EN</button><button id="aboutButton" class="text-button" data-zh="关于" data-en="About">关于</button></div>
+    </header>
+
+    <section id="introduction" class="introduction" aria-labelledby="introTitle">
+      <p class="eyebrow"><span class="hairline"></span><span data-zh="一条河流，几段尚未消失的记忆" data-en="A river. A few things not yet forgotten.">一条河流，几段尚未消失的记忆</span></p>
+      <h1 id="introTitle"><span data-zh="余" data-en="What">余</span><em data-zh="忆" data-en="remains.">忆</em></h1>
+      <p class="intro-copy" data-zh="有些风景，只有在你停留时才清晰。" data-en="Some places become clear only when you stay.">有些风景，只有在你停留时才清晰。</p>
+      <button id="begin" class="line-button" disabled><span id="beginLabel">正在唤起这片风景</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+      <p id="loadNote" class="small-note" role="status">载入原始全景，稍候片刻。</p>
+      <button id="retry" class="text-button" hidden data-zh="重新加载" data-en="Try again">重新加载</button>
+    </section>
+    <div class="margin-poem" aria-hidden="true"><span>THE SHAPE OF</span><span>WHAT WE LOSE.</span></div>
+    <div class="intro-footer"><span>01 / THE THAMES, LONDON</span><span>PHOTOGRAPHY · JUNHANG ZHOU</span></div>
+
+    <section id="exploreUI" class="explore-ui" hidden aria-label="探索操作">
+      <div class="place-note"><span class="eyebrow" data-zh="泰晤士河 · 伦敦" data-en="THE THAMES · LONDON">泰晤士河 · 伦敦</span><p id="quietLine">转过身，停留在你还记得的地方。</p></div>
+      <div id="focusWhisper" class="focus-whisper" aria-hidden="true"><span data-zh="停留，让它回来。" data-en="Stay. Let it return.">停留，让它回来。</span></div>
+      <footer class="explore-footer">
+        <div class="navigation-note"><span class="drag-symbol" aria-hidden="true">↔</span><span data-zh="拖动探索 · 轻点清晰处" data-en="Drag to look · touch what is clear">拖动探索 · 轻点清晰处</span></div>
+        <button id="saveMoment" class="line-button compact"><span data-zh="留下此刻" data-en="Keep this moment">留下此刻</span><span aria-hidden="true">↗</span></button>
+      </footer>
+      <div class="secondary-controls"><button id="helpButton" class="text-button" data-zh="如何探索" data-en="How to explore">如何探索</button><span class="separator">/</span><button id="gentleButton" class="text-button" aria-pressed="false" data-zh="轻柔模式" data-en="Gentle mode">轻柔模式</button></div>
+    </section>
+    <p id="announcement" class="sr-only" aria-live="polite"></p>
+    <div id="toast" class="toast" role="status"></div>
+  </main>
+
+  <dialog id="memoryDialog" class="memory-dialog" aria-labelledby="memoryTitle">
+    <div class="memory-shell">
+      <header class="dialog-heading"><span class="eyebrow" data-zh="一段浮现的记忆" data-en="A MEMORY, RETURNING">一段浮现的记忆</span><button id="closeMemory" class="text-button" data-zh="回到河边 ↗" data-en="Return to the river ↗">回到河边 ↗</button></header>
+      <div class="video-mat"><video id="memoryVideo" playsinline preload="none" controls></video><p id="videoMessage" class="video-message" role="status"></p><button id="resumeVideo" class="line-button resume-video" hidden data-zh="播放这段记忆 ↗" data-en="Play this memory ↗">播放这段记忆 ↗</button></div>
+      <footer class="memory-caption"><div><span id="memoryNumber" class="eyebrow"></span><h2 id="memoryTitle"></h2></div><p id="memoryText"></p></footer>
+      <div class="time-thread" aria-hidden="true"><span id="videoProgress"></span></div>
+    </div>
+  </dialog>
+
+  <dialog id="keepDialog" class="sheet-dialog" aria-labelledby="keepTitle">
+    <button id="closeKeep" class="sheet-close text-button" data-zh="继续探索 ↗" data-en="Keep exploring ↗">继续探索 ↗</button>
+    <p class="eyebrow" data-zh="一次停留的形状" data-en="THE SHAPE OF YOUR ATTENTION">一次停留的形状</p>
+    <h2 id="keepTitle" data-zh="此刻，还记得。" data-en="For now, remembered.">此刻，还记得。</h2>
+    <img id="savedImage" alt="此刻的记忆图像" width="1800" height="1200">
+    <p class="sheet-copy" data-zh="留下的是此刻的清晰与模糊。回到河边，记忆仍会继续变化。" data-en="A record of what was clear, and what was fading. Back at the river, memory keeps changing.">留下的是此刻的清晰与模糊。回到河边，记忆仍会继续变化。</p>
+    <a id="downloadMoment" class="line-button" download="what-remains.png"><span data-zh="保存记忆图像" data-en="Save memory image">保存记忆图像</span><span aria-hidden="true">↓</span></a>
+    <p class="small-note" data-zh="手机也可以长按图像保存。" data-en="On a phone, you can also hold the image to save it.">手机也可以长按图像保存。</p>
+  </dialog>
+
+  <dialog id="aboutDialog" class="sheet-dialog text-sheet" aria-labelledby="aboutTitle">
+    <button class="sheet-close text-button" id="closeAbout" data-zh="返回 ↗" data-en="Return ↗">返回 ↗</button><p class="eyebrow">WHAT REMAINS / 01</p>
+    <h2 id="aboutTitle" data-zh="余忆" data-en="What Remains">余忆</h2>
+    <p data-zh="我们能够保存一个片段，却未必能留住整个地方。" data-en="We can keep a fragment, without keeping the whole place.">我们能够保存一个片段，却未必能留住整个地方。</p>
+    <p data-zh="转动全景，停留在逐渐清晰的景物附近。点击它，进入一段现场影像。回来之后，你看过的地方会留下痕迹，并在继续探索时慢慢淡去。" data-en="Turn through the panorama. Stay with something as it becomes clear, then touch it to enter a filmed memory. When you return, it leaves a trace that slowly fades as you keep looking.">转动全景，停留在逐渐清晰的景物附近。点击它，进入一段现场影像。回来之后，你看过的地方会留下痕迹，并在继续探索时慢慢淡去。</p>
+    <p class="small-note" data-zh="实拍全景与现场声音：周俊行。细节影像来自同一地区的不同机位，以记忆片段连接。模糊与像素化是对遗忘的艺术表达。" data-en="Original panorama, footage and location sound by Junhang Zhou. Details were filmed from different viewpoints in the area and connected as memories. Blur and pixelation are artistic representations of forgetting.">实拍全景与现场声音：周俊行。细节影像来自同一地区的不同机位，以记忆片段连接。模糊与像素化是对遗忘的艺术表达。</p>
+    <div class="colophon">JUNHANG ZHOU <span>2026</span></div>
+  </dialog>
+
+  <dialog id="helpDialog" class="sheet-dialog text-sheet" aria-labelledby="helpTitle">
+    <button id="closeHelp" class="sheet-close text-button" data-zh="返回 ↗" data-en="Return ↗">返回 ↗</button><p class="eyebrow" data-zh="慢一点，也没有关系" data-en="THERE IS NO HURRY">慢一点，也没有关系</p>
+    <h2 id="helpTitle" data-zh="让风景回来。" data-en="Let the place return.">让风景回来。</h2>
+    <p data-zh="用鼠标或手指拖动。某个景物变清晰时，停留片刻，再轻点它。这里没有倒计时，也不需要找到全部片段。" data-en="Drag with your mouse or finger. When something becomes clear, linger, then touch it. There is no countdown, and no need to find every fragment.">用鼠标或手指拖动。某个景物变清晰时，停留片刻，再轻点它。这里没有倒计时，也不需要找到全部片段。</p>
+    <p data-zh="方向键可以转动，回车进入当前清晰的片段。也可以用下面的入口慢慢靠近一段记忆。" data-en="Arrow keys turn the view; Enter opens the clear fragment. You can also approach a memory using the entrances below.">方向键可以转动，回车进入当前清晰的片段。也可以用下面的入口慢慢靠近一段记忆。</p>
+    <div class="accessible-memories" id="accessibleMemories"></div>
+  </dialog>
+  <noscript><p class="no-script">这个互动作品需要启用 JavaScript。This experience needs JavaScript.</p></noscript>
+  <script type="module" src="./memory.js"></script>
+</body>
+</html>
